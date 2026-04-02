@@ -7,7 +7,7 @@ const EXPERIENCE = [
   {
     role: "B.Sc. Computer Information Systems",
     company: "Imam Abdulrahman Bin Faisal University",
-    period: "2022 – May 2026",
+    period: "2021 – May 2026",
     location: "Saudi Arabia",
     bullets: [
       "GPA: 4.00 — graduating with distinction.",

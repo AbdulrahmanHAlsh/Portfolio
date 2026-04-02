@@ -10,17 +10,17 @@ export default function Contact() {
   const links = [
     {
       label: t.contact.emailLabel,
-      href: "mailto:AbdulrahmanAlsh17@gmail.com",
+      href: "mailto:abdulrahman@abdulrahmanalsh.me",
       icon: Mail,
     },
     {
       label: t.contact.linkedinLabel,
-      href: "https://linkedin.com/in/your-profile", // TODO: replace with your LinkedIn URL
+      href: "https://www.linkedin.com/in/abdulrahman-alshahrani-hassan/", // TODO: replace with your LinkedIn URL
       icon: Linkedin,
     },
     {
       label: t.contact.githubLabel,
-      href: "https://github.com/your-username", // TODO: replace with your GitHub URL
+      href: "https://github.com/ShineAlready", // TODO: replace with your GitHub URL
       icon: Github,
     },
   ];
