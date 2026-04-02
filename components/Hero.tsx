@@ -83,7 +83,7 @@ export default function Hero() {
           </button>
 
           <a
-            href="/cv.pdf"
+            href="/Abdulrahman_Alshahrani_CV.pdf"
             download
             className="group inline-flex items-center gap-2 px-6 py-3 border border-zinc-300 dark:border-zinc-700 hover:border-emerald-500 dark:hover:border-emerald-500 active:scale-95 text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 rounded-lg font-mono text-sm transition-all duration-200"
           >
