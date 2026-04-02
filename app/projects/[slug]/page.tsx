@@ -99,8 +99,9 @@ The system implements full API integrations with OAuth2 authentication, conditio
   },
 };
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = PROJECTS[params.slug];
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = PROJECTS[slug];
   if (!project) notFound();
 
   return (
@@ -265,8 +266,9 @@ export function generateStaticParams() {
   return Object.keys(PROJECTS).map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const project = PROJECTS[params.slug];
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = PROJECTS[slug];
   if (!project) return {};
   return {
     title: `${project.title} — Abdulrahman Al-Shahrani`,
