@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { LangProvider } from "@/lib/lang-provider";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function RootLayout({
           disableTransitionOnChange={false}
         >
           <LangProvider>{children}</LangProvider>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

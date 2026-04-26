@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: 'DM Serif Display', serif;
+}
+
 :root {
   --accent: 16 185 129;
   --accent-light: 110 231 183;
@@ -88,3 +92,19 @@ body::before {
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-gradient {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .animate-bounce {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}

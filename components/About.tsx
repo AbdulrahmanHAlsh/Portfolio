@@ -2,21 +2,7 @@
 
 import Section, { SectionLabel } from "@/components/Section";
 import { useLang } from "@/lib/lang-provider";
-
-const SKILLS = [
-  "Python",
-  "HTML",
-  "JavaScript",
-  "C++",
-  "Java",
-  "SQL",
-  "Database Design",
-  "Machine Learning",
-  "Data Analysis",
-  "n8n",
-  "MySQL",
-  "Git & GitHub",
-];
+import { SKILLS } from "@/lib/data";
 
 export default function About() {
   const { t, dir } = useLang();
@@ -27,10 +13,7 @@ export default function About() {
         <SectionLabel>{t.about.sectionLabel}</SectionLabel>
         <div className="grid md:grid-cols-2 gap-12 mt-8">
           <div className="space-y-5">
-            <h2
-              className="text-4xl md:text-5xl text-zinc-900 dark:text-zinc-50 font-normal leading-tight"
-              style={{ fontFamily: "'DM Serif Display', serif" }}
-            >
+            <h2 className="font-display text-4xl md:text-5xl text-zinc-900 dark:text-zinc-50 font-normal leading-tight">
               {t.about.heading}
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">{t.about.p1}</p>

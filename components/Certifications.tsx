@@ -3,34 +3,7 @@
 import Section, { SectionLabel } from "@/components/Section";
 import { useLang } from "@/lib/lang-provider";
 import { Award } from "lucide-react";
-
-const CERTS = [
-  {
-    name: "Artificial Intelligence Fundamentals with Capstone Project",
-    issuer: "IBM",
-    date: "2024",
-  },
-  {
-    name: "Introduction to Data Science in Python",
-    issuer: "University of Michigan",
-    date: "2024",
-  },
-  {
-    name: "Data Collection and Processing with Python",
-    issuer: "University of Michigan",
-    date: "2024",
-  },
-  {
-    name: "Code Generation and Optimization Using IBM Granite",
-    issuer: "IBM",
-    date: "2024",
-  },
-  {
-    name: "AI Prerequisite Python Training Program (5 Courses)",
-    issuer: "KAUST Academy",
-    date: "2024",
-  },
-];
+import { CERTS } from "@/lib/data";
 
 export default function Certifications() {
   const { t, dir } = useLang();
@@ -39,10 +12,7 @@ export default function Certifications() {
     <Section id="certifications">
       <div dir={dir}>
         <SectionLabel>{t.certifications.sectionLabel}</SectionLabel>
-        <h2
-          className="text-4xl md:text-5xl text-zinc-900 dark:text-zinc-50 font-normal mt-2 mb-12"
-          style={{ fontFamily: "'DM Serif Display', serif" }}
-        >
+        <h2 className="font-display text-4xl md:text-5xl text-zinc-900 dark:text-zinc-50 font-normal mt-2 mb-12">
           {t.certifications.heading}
         </h2>
 

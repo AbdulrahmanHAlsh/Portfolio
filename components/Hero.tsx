@@ -46,8 +46,7 @@ export default function Hero() {
         </div>
 
         <h1
-          className="opacity-0 animate-fade-up delay-100 font-serif text-6xl md:text-8xl lg:text-9xl font-normal leading-none text-zinc-900 dark:text-zinc-50 mb-4"
-          style={{ fontFamily: "'DM Serif Display', serif" }}
+          className="opacity-0 animate-fade-up delay-100 font-display text-6xl md:text-8xl lg:text-9xl font-normal leading-none text-zinc-900 dark:text-zinc-50 mb-4"
         >
           <span className="block">{firstName}</span>
           <span className="block">{lastName}</span>

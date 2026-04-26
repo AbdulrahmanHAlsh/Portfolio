@@ -2,45 +2,17 @@
 
 import Section, { SectionLabel } from "@/components/Section";
 import { useLang } from "@/lib/lang-provider";
+import { EDUCATION, ACHIEVEMENTS } from "@/lib/data";
 
-const EDUCATION = [
-  {
-    role: "B.Sc. Computer Information Systems",
-    company: "Imam Abdulrahman Bin Faisal University",
-    period: "2021 – May 2026",
-    location: "Saudi Arabia",
-    bullets: [
-      "GPA: 4.00 — graduating with distinction.",
-      "Specializing in data-driven systems, AI-enabled solutions, and smart technology integration.",
-      "Led multidisciplinary graduation project (SafeTrack Kids) integrating IoT and real-time data systems.",
-    ],
-  },
-];
+type TimelineItem = {
+  role: string;
+  company: string;
+  period: string;
+  location: string;
+  bullets: string[];
+};
 
-const ACHIEVEMENTS = [
-  {
-    role: "AI Program Participant",
-    company: "KAUST Academy",
-    period: "2025",
-    location: "Saudi Arabia",
-    bullets: [
-      "Selected for the KAUST Academy Artificial Intelligence Program based on technical and academic merit.",
-      "Completed prerequisite Python Training Program comprising five specialized courses in Python programming and data science foundations.",
-    ],
-  },
-  {
-    role: "Consulting Championship Competitor",
-    company: "Consulting Championship 2025",
-    period: "2025",
-    location: "Saudi Arabia",
-    bullets: [
-      "Competed demonstrating analytical problem-solving, business strategy, and team collaboration skills.",
-      "Recognized for leading multidisciplinary technical project planning, system design, and implementation coordination.",
-    ],
-  },
-];
-
-function TimelineList({ items }: { items: typeof EDUCATION }) {
+function TimelineList({ items }: { items: TimelineItem[] }) {
   return (
     <div className="relative">
       <div className="absolute top-0 bottom-0 left-[7px] md:left-[11px] w-px bg-zinc-200 dark:bg-zinc-800" />
@@ -79,30 +51,20 @@ export default function Experience() {
   return (
     <Section id="experience" className="bg-zinc-50 dark:bg-zinc-900/40">
       <div dir={dir} className="space-y-20">
-
-        {/* Education */}
         <div>
           <SectionLabel>{t.experience.sectionLabel}</SectionLabel>
-          <h2
-            className="text-4xl md:text-5xl text-zinc-900 dark:text-zinc-50 font-normal mt-2 mb-12"
-            style={{ fontFamily: "'DM Serif Display', serif" }}
-          >
+          <h2 className="font-display text-4xl md:text-5xl text-zinc-900 dark:text-zinc-50 font-normal mt-2 mb-12">
             {t.experience.heading}
           </h2>
           <TimelineList items={EDUCATION} />
         </div>
 
-        {/* Achievements */}
         <div>
-          <h2
-            className="text-4xl md:text-5xl text-zinc-900 dark:text-zinc-50 font-normal mb-12"
-            style={{ fontFamily: "'DM Serif Display', serif" }}
-          >
+          <h2 className="font-display text-4xl md:text-5xl text-zinc-900 dark:text-zinc-50 font-normal mb-12">
             {t.experience.achievementsHeading}
           </h2>
           <TimelineList items={ACHIEVEMENTS} />
         </div>
-
       </div>
     </Section>
   );

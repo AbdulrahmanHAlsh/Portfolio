@@ -20,21 +20,29 @@ export default function Navbar() {
   useEffect(() => { setMounted(true); }, []);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 20);
-
-      // Active section tracking
-      const offsets = NAV_ITEMS.map((id) => {
-        const el = document.getElementById(id);
-        if (!el) return { id, top: Infinity };
-        return { id, top: Math.abs(el.getBoundingClientRect().top - 100) };
-      });
-      const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b));
-      setActiveSection(closest.id as NavItem);
-    };
-
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id as NavItem);
+          }
+        }
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    NAV_ITEMS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (id: NavItem) => {
