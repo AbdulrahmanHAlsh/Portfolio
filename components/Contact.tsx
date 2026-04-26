@@ -67,41 +67,42 @@ export default function Contact() {
         <form
           onSubmit={handleSubmit}
           className="max-w-lg mx-auto mb-12 space-y-4 text-left"
+          dir={dir}
         >
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase tracking-wider">
-                Name
+              <label className="block text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1.5">
+                {t.contact.formName}
               </label>
               <input
                 name="name"
                 required
-                placeholder="Your name"
+                placeholder={t.contact.formNamePlaceholder}
                 className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-sm font-mono focus:outline-none focus:border-emerald-500 dark:focus:border-emerald-500 transition-colors"
               />
             </div>
             <div>
-              <label className="block text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase tracking-wider">
-                Email
+              <label className="block text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1.5">
+                {t.contact.formEmail}
               </label>
               <input
                 name="email"
                 type="email"
                 required
-                placeholder="your@email.com"
+                placeholder={t.contact.formEmailPlaceholder}
                 className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-sm font-mono focus:outline-none focus:border-emerald-500 dark:focus:border-emerald-500 transition-colors"
               />
             </div>
           </div>
           <div>
-            <label className="block text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase tracking-wider">
-              Message
+            <label className="block text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1.5">
+              {t.contact.formMessage}
             </label>
             <textarea
               name="message"
               required
               rows={4}
-              placeholder="What's on your mind?"
+              placeholder={t.contact.formMessagePlaceholder}
               className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-sm font-mono focus:outline-none focus:border-emerald-500 dark:focus:border-emerald-500 transition-colors resize-none"
             />
           </div>
@@ -109,13 +110,13 @@ export default function Contact() {
           {status === "success" && (
             <div className="flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 font-mono">
               <CheckCircle size={14} />
-              Message sent — I'll get back to you soon.
+              {t.contact.formSuccess}
             </div>
           )}
           {status === "error" && (
             <div className="flex items-center gap-2 text-sm text-red-500 font-mono">
               <AlertCircle size={14} />
-              Something went wrong. Try emailing me directly.
+              {t.contact.formError}
             </div>
           )}
 
@@ -125,7 +126,7 @@ export default function Contact() {
             className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 disabled:cursor-not-allowed active:scale-95 text-white rounded-lg font-mono text-sm transition-all duration-200 shadow-lg shadow-emerald-900/20"
           >
             <Send size={13} />
-            {status === "sending" ? "Sending…" : "Send Message"}
+            {status === "sending" ? t.contact.formSending : t.contact.formSend}
           </button>
         </form>
 

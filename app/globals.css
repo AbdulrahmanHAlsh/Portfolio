@@ -17,9 +17,20 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* RTL support */
+/* RTL / Arabic support */
 [dir="rtl"] {
   text-align: right;
+}
+
+/* Arabic is a connected script — letter-spacing breaks ligatures */
+[dir="rtl"] * {
+  letter-spacing: 0 !important;
+}
+
+/* Use Arabic font for all text in RTL mode */
+[dir="rtl"] .font-mono,
+[dir="rtl"] .font-display {
+  font-family: 'Noto Kufi Arabic', sans-serif;
 }
 
 /* Custom scrollbar */
