@@ -64,32 +64,6 @@ export default function Hero() {
           {t.hero.subtitle}
         </p>
 
-        <div
-          className={cn(
-            "opacity-0 animate-fade-up delay-400 flex gap-4 flex-wrap",
-            dir === "rtl" ? "flex-row-reverse" : ""
-          )}
-        >
-          <button
-            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
-            className="group inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white rounded-lg font-mono text-sm transition-all duration-200 shadow-lg shadow-emerald-900/20"
-          >
-            {t.hero.cta}
-            <ArrowDown
-              size={14}
-              className="group-hover:translate-y-0.5 transition-transform"
-            />
-          </button>
-
-          <a
-            href="/Abdulrahman_Alshahrani_CV.pdf"
-            download
-            className="group inline-flex items-center gap-2 px-6 py-3 border border-zinc-300 dark:border-zinc-700 hover:border-emerald-500 dark:hover:border-emerald-500 active:scale-95 text-zinc-700 dark:text-zinc-300 hover:text-emerald-600 dark:hover:text-emerald-400 rounded-lg font-mono text-sm transition-all duration-200"
-          >
-            <Download size={14} className="group-hover:translate-y-0.5 transition-transform" />
-            {t.hero.cv}
-          </a>
-        </div>
 
         {/* Scroll indicator */}
         <button
