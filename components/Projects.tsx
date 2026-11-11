@@ -37,6 +37,7 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="p-1.5 rounded-md text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-95 transition-all"
                       title="View on GitHub"
+                      aria-label="View on GitHub"
                     >
                       <Github size={14} />
                     </a>
@@ -45,6 +46,7 @@ export default function Projects() {
                     href={`/projects/${project.slug}`}
                     className="p-1.5 rounded-md text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 active:scale-95 transition-all"
                     title="View project details"
+                    aria-label={`View details for ${project.title}`}
                   >
                     <ExternalLink size={14} />
                   </Link>

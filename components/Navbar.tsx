@@ -98,7 +98,7 @@ export default function Navbar() {
           <button
             onClick={toggleLang}
             title="Toggle Language"
-            className="p-2 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-95 transition-all"
+            className="p-2.5 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-95 transition-all"
           >
             <Languages size={16} />
             <span className="sr-only">Toggle language</span>
@@ -108,7 +108,7 @@ export default function Navbar() {
           {mounted && (
             <button
               onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-              className="p-2 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-95 transition-all"
+              className="p-2.5 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-95 transition-all"
             >
               {resolvedTheme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
               <span className="sr-only">Toggle theme</span>
@@ -118,9 +118,11 @@ export default function Navbar() {
           {/* Mobile menu button */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden p-2 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-95 transition-all"
+            aria-expanded={menuOpen}
+            className="md:hidden p-2.5 rounded-md text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-95 transition-all"
           >
             {menuOpen ? <X size={18} /> : <Menu size={18} />}
+            <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
           </button>
         </div>
       </nav>

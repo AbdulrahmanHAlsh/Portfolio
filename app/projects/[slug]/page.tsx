@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Github } from "lucide-react";
 import { PROJECT_DETAILS } from "@/lib/data";
 
@@ -136,12 +137,18 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           ) : (
             <div className="grid gap-4">
               {project.images.map((src, i) => (
-                <img
+                <div
                   key={i}
-                  src={src}
-                  alt={`${project.title} screenshot ${i + 1}`}
-                  className="rounded-xl border border-zinc-200 dark:border-zinc-800 w-full"
-                />
+                  className="relative w-full aspect-video rounded-xl overflow-hidden border border-zinc-200 dark:border-zinc-800"
+                >
+                  <Image
+                    src={src}
+                    alt={`${project.title} screenshot ${i + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 768px) 768px, 100vw"
+                  />
+                </div>
               ))}
             </div>
           )}
