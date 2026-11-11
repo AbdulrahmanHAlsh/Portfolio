@@ -1,16 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import Section, { SectionLabel } from "@/components/Section";
 import { useLang } from "@/lib/lang-provider";
-import { Mail, Linkedin, Github, Send, CheckCircle, AlertCircle } from "lucide-react";
-
-// Sign up at formspree.io, create a form, and replace this with your form ID
-const FORMSPREE_ID = "YOUR_FORM_ID";
+import { Mail, Linkedin, Github } from "lucide-react";
 
 export default function Contact() {
   const { t, dir } = useLang();
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const links = [
     {
@@ -30,28 +25,6 @@ export default function Contact() {
     },
   ];
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("sending");
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-      if (res.ok) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  }
-
   return (
     <Section id="contact" className="bg-zinc-50 dark:bg-zinc-900/40">
       <div dir={dir} className="text-center">
@@ -62,73 +35,6 @@ export default function Contact() {
         <p className="text-zinc-600 dark:text-zinc-400 max-w-md mx-auto leading-relaxed mb-12">
           {t.contact.subtitle}
         </p>
-
-        {/* Contact form */}
-        <form
-          onSubmit={handleSubmit}
-          className="max-w-lg mx-auto mb-12 space-y-4 text-left"
-          dir={dir}
-        >
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1.5">
-                {t.contact.formName}
-              </label>
-              <input
-                name="name"
-                required
-                placeholder={t.contact.formNamePlaceholder}
-                className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-sm font-mono focus:outline-none focus:border-emerald-500 dark:focus:border-emerald-500 transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1.5">
-                {t.contact.formEmail}
-              </label>
-              <input
-                name="email"
-                type="email"
-                required
-                placeholder={t.contact.formEmailPlaceholder}
-                className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-sm font-mono focus:outline-none focus:border-emerald-500 dark:focus:border-emerald-500 transition-colors"
-              />
-            </div>
-          </div>
-          <div>
-            <label className="block text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1.5">
-              {t.contact.formMessage}
-            </label>
-            <textarea
-              name="message"
-              required
-              rows={4}
-              placeholder={t.contact.formMessagePlaceholder}
-              className="w-full px-4 py-2.5 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 text-sm font-mono focus:outline-none focus:border-emerald-500 dark:focus:border-emerald-500 transition-colors resize-none"
-            />
-          </div>
-
-          {status === "success" && (
-            <div className="flex items-center gap-2 text-sm text-emerald-600 dark:text-emerald-400 font-mono">
-              <CheckCircle size={14} />
-              {t.contact.formSuccess}
-            </div>
-          )}
-          {status === "error" && (
-            <div className="flex items-center gap-2 text-sm text-red-500 font-mono">
-              <AlertCircle size={14} />
-              {t.contact.formError}
-            </div>
-          )}
-
-          <button
-            type="submit"
-            disabled={status === "sending" || status === "success"}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 disabled:opacity-60 disabled:cursor-not-allowed active:scale-95 text-white rounded-lg font-mono text-sm transition-all duration-200 shadow-lg shadow-emerald-900/20"
-          >
-            <Send size={13} />
-            {status === "sending" ? t.contact.formSending : t.contact.formSend}
-          </button>
-        </form>
 
         {/* Social links */}
         <div className="flex flex-wrap justify-center gap-4">
