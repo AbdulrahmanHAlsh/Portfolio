@@ -15,17 +15,17 @@ type TimelineItem = {
 function TimelineList({ items }: { items: TimelineItem[] }) {
   return (
     <div className="relative">
-      <div className="absolute top-0 bottom-0 left-[7px] md:left-[11px] w-px bg-zinc-200 dark:bg-zinc-800" />
+      <div className="absolute top-0 bottom-0 start-[7px] md:start-[11px] w-px bg-zinc-200 dark:bg-zinc-800" />
       <div className="space-y-10">
         {items.map((exp, i) => (
-          <div key={i} className="relative pl-8 md:pl-10">
-            <div className="absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-emerald-500 bg-white dark:bg-zinc-950" />
+          <div key={i} className="relative ps-8 md:ps-10">
+            <div className="absolute start-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-emerald-500 bg-white dark:bg-zinc-950" />
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-1 mb-3">
               <div>
                 <h3 className="font-medium text-zinc-900 dark:text-zinc-100">{exp.role}</h3>
                 <p className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">{exp.company}</p>
               </div>
-              <div className="text-right shrink-0">
+              <div className="text-end shrink-0">
                 <p className="font-mono text-sm text-zinc-500 dark:text-zinc-400">{exp.period}</p>
                 <p className="font-mono text-xs text-zinc-400 dark:text-zinc-500">{exp.location}</p>
               </div>

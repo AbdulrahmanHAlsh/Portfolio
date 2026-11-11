@@ -1,7 +1,7 @@
 "use client";
 
 import { useLang } from "@/lib/lang-provider";
-import { ArrowDown, Download } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export default function Hero() {
@@ -64,6 +64,23 @@ export default function Hero() {
           {t.hero.subtitle}
         </p>
 
+        <div
+          className={cn(
+            "opacity-0 animate-fade-up delay-400 flex gap-4 flex-wrap",
+            dir === "rtl" ? "flex-row-reverse" : ""
+          )}
+        >
+          <button
+            onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
+            className="group inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white rounded-lg font-mono text-sm transition-all duration-200 shadow-lg shadow-emerald-900/20"
+          >
+            {t.hero.cta}
+            <ArrowDown
+              size={14}
+              className="group-hover:translate-y-0.5 transition-transform"
+            />
+          </button>
+        </div>
 
         {/* Scroll indicator */}
         <button
