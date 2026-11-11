@@ -29,6 +29,7 @@ export default function About() {
               {SKILLS.map((skill) => (
                 <span
                   key={skill}
+                  dir="ltr"
                   className="px-3 py-1.5 text-sm font-mono border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 rounded-md hover:border-emerald-400 dark:hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all duration-200 cursor-default"
                 >
                   {skill}

@@ -87,7 +87,7 @@ export default function Hero() {
           onClick={scrollToAbout}
           className="opacity-0 animate-fade-up delay-500 absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 active:scale-95 transition-all"
         >
-          <span className="font-mono text-xs tracking-widest">scroll</span>
+          <span className="font-mono text-xs tracking-widest">{t.hero.scroll}</span>
           <ArrowDown size={14} className="animate-bounce" />
         </button>
       </div>

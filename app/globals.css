@@ -29,10 +29,23 @@ body {
   letter-spacing: 0 !important;
 }
 
-/* Use Arabic font for all text in RTL mode */
-[dir="rtl"] .font-mono,
-[dir="rtl"] .font-display {
+/* Use Arabic font for all text in RTL mode, except Latin runs isolated with dir="ltr" */
+[dir="rtl"] .font-mono:not([dir="ltr"]),
+[dir="rtl"] .font-display:not([dir="ltr"]) {
   font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+/* Kufi's descenders (the dots under ي, the tail of ن) overflow a tight line box */
+[dir="rtl"] .font-display {
+  line-height: 1.4;
+}
+
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p, li {
+  text-wrap: pretty;
 }
 
 /* Custom scrollbar */

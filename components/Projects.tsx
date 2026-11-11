@@ -7,7 +7,7 @@ import Link from "next/link";
 import { PROJECTS } from "@/lib/data";
 
 export default function Projects() {
-  const { t, dir } = useLang();
+  const { t, dir, lang } = useLang();
 
   return (
     <Section id="projects">
@@ -27,7 +27,7 @@ export default function Projects() {
 
               <div className="flex items-start justify-between gap-4 mb-3">
                 <h3 className="font-display text-xl text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 transition-colors">
-                  {project.title}
+                  {project.title[lang]}
                 </h3>
                 <div className="flex gap-2 shrink-0">
                   {project.repo !== "#" && (
@@ -36,8 +36,8 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-1.5 rounded-md text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800 active:scale-95 transition-all"
-                      title="View on GitHub"
-                      aria-label="View on GitHub"
+                      title={t.projects.viewCode}
+                      aria-label={t.projects.viewCode}
                     >
                       <Github size={14} />
                     </a>
@@ -45,8 +45,8 @@ export default function Projects() {
                   <Link
                     href={`/projects/${project.slug}`}
                     className="p-1.5 rounded-md text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 active:scale-95 transition-all"
-                    title="View project details"
-                    aria-label={`View details for ${project.title}`}
+                    title={t.projects.viewProject}
+                    aria-label={`${t.projects.viewProject}: ${project.title[lang]}`}
                   >
                     <ExternalLink size={14} />
                   </Link>
@@ -54,13 +54,14 @@ export default function Projects() {
               </div>
 
               <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-5">
-                {project.description}
+                {project.description[lang]}
               </p>
 
               <div className="flex flex-wrap gap-1.5">
                 {project.tech.map((tech) => (
                   <span
                     key={tech}
+                    dir="ltr"
                     className="px-2 py-0.5 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded"
                   >
                     {tech}
@@ -73,7 +74,8 @@ export default function Projects() {
                   href={`/projects/${project.slug}`}
                   className="inline-flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-mono transition-colors"
                 >
-                  View Details →
+                  {t.projects.viewProject}
+                  <span aria-hidden="true">{dir === "rtl" ? "←" : "→"}</span>
                 </Link>
               </div>
             </div>

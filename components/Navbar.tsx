@@ -69,6 +69,7 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => scrollToSection("home")}
+          dir="ltr"
           className="font-mono text-sm font-medium text-emerald-500 dark:text-emerald-400 tracking-tight hover:text-emerald-600 dark:hover:text-emerald-300 active:scale-95"
         >
           &lt;AAS /&gt;

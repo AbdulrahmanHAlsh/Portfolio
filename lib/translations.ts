@@ -18,6 +18,7 @@ export const translations = {
         "I build intelligent systems at the intersection of AI, data, and real-world impact. Passionate about IoT solutions, machine learning, and creating technology that solves meaningful problems.",
       cta: "View My Work",
       cv: "Download CV",
+      scroll: "scroll",
     },
     // About
     about: {
@@ -32,8 +33,19 @@ export const translations = {
     projects: {
       sectionLabel: "Work",
       heading: "Selected Projects",
-      viewProject: "View Project",
-      viewCode: "Code",
+      viewProject: "View Details",
+      viewCode: "View on GitHub",
+    },
+    // Project detail page
+    projectDetail: {
+      back: "Back to Projects",
+      overview: "Overview",
+      highlights: "Key Highlights",
+      role: "My Role",
+      techStack: "Tech Stack",
+      screenshots: "Screenshots",
+      comingSoon: "Screenshots coming soon",
+      github: "GitHub",
     },
     // Experience
     experience: {
@@ -81,6 +93,7 @@ export const translations = {
         "أبني أنظمة ذكية تجمع بين الذكاء الاصطناعي والبيانات والأثر الحقيقي. شغوف بحلول إنترنت الأشياء والتعلم الآلي.",
       cta: "اعرض أعمالي",
       cv: "تحميل السيرة الذاتية",
+      scroll: "تمرير",
     },
     about: {
       sectionLabel: "عني",
@@ -93,8 +106,18 @@ export const translations = {
     projects: {
       sectionLabel: "الأعمال",
       heading: "مشاريع مختارة",
-      viewProject: "عرض المشروع",
-      viewCode: "الكود",
+      viewProject: "عرض التفاصيل",
+      viewCode: "عرض على جيت هاب",
+    },
+    projectDetail: {
+      back: "العودة للمشاريع",
+      overview: "نظرة عامة",
+      highlights: "أبرز النقاط",
+      role: "دوري في المشروع",
+      techStack: "التقنيات المستخدمة",
+      screenshots: "لقطات الشاشة",
+      comingSoon: "لقطات الشاشة قريباً",
+      github: "جيت هاب",
     },
     experience: {
       sectionLabel: "الخلفية",

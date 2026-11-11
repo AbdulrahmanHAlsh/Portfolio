@@ -2,17 +2,11 @@
 
 import Section, { SectionLabel } from "@/components/Section";
 import { useLang } from "@/lib/lang-provider";
-import { EDUCATION, ACHIEVEMENTS } from "@/lib/data";
-
-type TimelineItem = {
-  role: string;
-  company: string;
-  period: string;
-  location: string;
-  bullets: string[];
-};
+import { EDUCATION, ACHIEVEMENTS, type TimelineItem } from "@/lib/data";
 
 function TimelineList({ items }: { items: TimelineItem[] }) {
+  const { lang, dir } = useLang();
+
   return (
     <div className="relative">
       <div className="absolute top-0 bottom-0 start-[7px] md:start-[11px] w-px bg-zinc-200 dark:bg-zinc-800" />
@@ -22,18 +16,18 @@ function TimelineList({ items }: { items: TimelineItem[] }) {
             <div className="absolute start-0 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-emerald-500 bg-white dark:bg-zinc-950" />
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-1 mb-3">
               <div>
-                <h3 className="font-medium text-zinc-900 dark:text-zinc-100">{exp.role}</h3>
-                <p className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">{exp.company}</p>
+                <h3 className="font-medium text-zinc-900 dark:text-zinc-100">{exp.role[lang]}</h3>
+                <p className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">{exp.company[lang]}</p>
               </div>
-              <div className="text-end shrink-0">
-                <p className="font-mono text-sm text-zinc-500 dark:text-zinc-400">{exp.period}</p>
-                <p className="font-mono text-xs text-zinc-400 dark:text-zinc-500">{exp.location}</p>
+              <div className="text-start md:text-end shrink-0">
+                <p className="font-mono text-sm text-zinc-500 dark:text-zinc-400">{exp.period[lang]}</p>
+                <p className="font-mono text-xs text-zinc-400 dark:text-zinc-500">{exp.location[lang]}</p>
               </div>
             </div>
             <ul className="space-y-2">
-              {exp.bullets.map((bullet, j) => (
+              {exp.bullets[lang].map((bullet, j) => (
                 <li key={j} className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed flex gap-2">
-                  <span className="text-emerald-400 mt-1.5 shrink-0">▸</span>
+                  <span aria-hidden="true" className="text-emerald-400 mt-1.5 shrink-0">{dir === "rtl" ? "◂" : "▸"}</span>
                   {bullet}
                 </li>
               ))}

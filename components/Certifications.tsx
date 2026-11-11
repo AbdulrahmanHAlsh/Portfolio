@@ -6,7 +6,7 @@ import { Award } from "lucide-react";
 import { CERTS } from "@/lib/data";
 
 export default function Certifications() {
-  const { t, dir } = useLang();
+  const { t, dir, lang } = useLang();
 
   return (
     <Section id="certifications">
@@ -26,9 +26,9 @@ export default function Certifications() {
                 <Award size={18} className="text-emerald-600 dark:text-emerald-400" />
               </div>
               <h3 className="font-medium text-sm text-zinc-900 dark:text-zinc-100 leading-snug mb-1">
-                {cert.name}
+                <bdi dir="ltr">{cert.name}</bdi>
               </h3>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-3">{cert.issuer}</p>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400 mb-3">{cert.issuer[lang]}</p>
               <p className="font-mono text-xs text-emerald-500 dark:text-emerald-400">
                 {t.certifications.issued} {cert.date}
               </p>
